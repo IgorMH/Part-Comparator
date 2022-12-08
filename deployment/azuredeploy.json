@@ -241,10 +241,12 @@
                 },
                 "autoPause": {
                   "enabled": true,
-                  "delayInMinutes": 15
+                  "delayInMinutes": 5
                 },
                 "dynamicExecutorAllocation": {
-                  "enabled": true
+                  "enabled": true,
+                  "minExecutors": 2,
+                  "maxExecutors": 3
                 },
                 "provisioningState": "Succeeded"
               },
