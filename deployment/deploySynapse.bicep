@@ -51,7 +51,7 @@ resource synapsePool 'Microsoft.Synapse/workspaces/bigDataPools@2021-03-01' = {
   properties:{
     sparkVersion: '2.4'
     nodeCount: 3
-    nodeSize: 'Medium'
+    nodeSize: 'Large'
     nodeSizeFamily:'MemoryOptimized'
     autoScale:{
       enabled: true
@@ -63,7 +63,9 @@ resource synapsePool 'Microsoft.Synapse/workspaces/bigDataPools@2021-03-01' = {
       delayInMinutes: 5
     }
     dynamicExecutorAllocation:{
-      enabled: false
+      enabled: true
+      minExecutors: 2
+      maxExecutors: 3
     }
     provisioningState: 'Succeeded'
   }
