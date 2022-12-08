@@ -37,7 +37,7 @@ $synapseWorkspaceName = $jsonString.properties.outputs.synapseworkspaceName.valu
 
 Write-Host "Resource Deployment has been completed"
 Write-Host "Upload Dataset in Azure Data Lake source filesystem in $storageAccountName"
-$storageAccountKey = az storage account keys list -g $resourceGroupName -n $storageAccountName --query "[?keyName == 'key1'].value" -o tsv
+$storageAccountKey = az storage account keys list --resource-group $resourceGroupName --account-name $storageAccountName --query "[?keyName == 'key1'].value" -o tsv
 az storage blob upload-batch -d sources --account-key $storageAccountKey --account-name $storageAccountName -s '..\data'
 
 # Write-Host "Uploading Notebooks to Synapse Workspace($synapseWorkspaceName)"
