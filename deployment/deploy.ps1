@@ -23,8 +23,8 @@ Write-Host "Select subscription '$subscriptionID'"
 az account set --subscription $subscriptionID
 Write-Host "Switched subscription to '$subscriptionID'"
 
-$userObjectID = az ad signed-in-user show --query objectId -o tsv
-Write-Host "This is userobject ID "$userObjectID
+$userObjectID = '<<Colocar aqui o ID de Usuario>>'
+Write-Host "This is userobject ID '$userObjectID'"
 
 #$deploymentResult = az deployment sub create -f .\main.bicep -l $location -n 'partcomparatorsa' -p userObjectID=$userObjectID
 $deploymentResult = az deployment sub create --template-file .\azuredeploy.json -l $location -n 'partcomparatorsa' -p userObjectID=$userObjectID sqlPassword=$sqlpassword
@@ -40,9 +40,9 @@ Write-Host "Upload Dataset in Azure Data Lake source filesystem in $storageAccou
 $storageAccountKey = az storage account keys list --resource-group $resourceGroupName --account-name $storageAccountName --query "[?keyName == 'key1'].value" -o tsv
 az storage blob upload-batch -d sources --account-key $storageAccountKey --account-name $storageAccountName -s '..\data'
 
-# Write-Host "Uploading Notebooks to Synapse Workspace($synapseWorkspaceName)"
+#Write-Host "Uploading Notebooks to Synapse Workspace($synapseWorkspaceName)"
 
-# az synapse notebook import --workspace-name $synapseWorkspaceName --name DataPreparation --file '..\src\notebooks\Comparator - Data Preparation.ipynb'
-# az synapse notebook import --workspace-name $synapseWorkspaceName --name DataModeling --file '..\src\notebooks\Comparator - Modeling.ipynb'
+#az synapse notebook import --workspace-name $synapseWorkspaceName --name DataPreparation --file '..\src\notebooks\Comparator - Data Preparation.ipynb'
+#az synapse notebook import --workspace-name $synapseWorkspaceName --name DataModeling --file '..\src\notebooks\Comparator - Modeling.ipynb'
 
 Write-Host "Whole Deployment process has been done"

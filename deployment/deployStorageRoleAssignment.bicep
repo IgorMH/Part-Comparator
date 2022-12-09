@@ -39,4 +39,3 @@ resource assignStorageBlobDataContributor_sp 'Microsoft.Authorization/roleAssign
     principalType:'User'
   }
  }
-

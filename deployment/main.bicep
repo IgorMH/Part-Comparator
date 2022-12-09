@@ -22,7 +22,7 @@ module adlPartComparator 'deployDataLakeStorage.bicep' = {
   name : '${resourceprefix}adls'
   scope : rgPartComprator
   params : {
-    stroageAccountName: replace(replace(toLower('${resourceprefix}adls'),'-',''),'_','')
+    storageAccountName: replace(replace(toLower('${resourceprefix}adls'),'-',''),'_','')
     containerName: 'sources'
   }
 }
