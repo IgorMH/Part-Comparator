@@ -20,7 +20,7 @@ param(
 
 Write-Host "Login Azure.....`r`n"
 
-az login
+az login -o none
 $subscriptionID = az account show --query id -o tsv
 Write-Host "Assinatura selecionada: '$subscriptionID'"
 az account set --subscription $subscriptionID
