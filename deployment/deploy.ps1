@@ -6,17 +6,17 @@ param(
     #              HelpMessage='Write your subscription ID to deploy your resources')]
     #  [string]
     #  $subscriptionID = '',
-    [Parameter(Mandatory= $True,
-                HelpMessage='Digite o data center que deseja fazer o deploy:')]
-    [string]
-    $location = '',
+    # [Parameter(Mandatory= $True,
+    #             HelpMessage='Digite o data center que deseja fazer o deploy:')]
+    # [string]
+    # $location = '',
     [Parameter(Mandatory= $True,
                 HelpMessage='Digite uma senha para o Pool SQL:')]
     [securestring]
     $sqlpassword = ''
 )
 
-
+$location = 'westus3'
 
 Write-Host "Login Azure.....`r`n"
 
@@ -24,7 +24,6 @@ az login -o none
 $subscriptionID = az account show --query id -o tsv
 Write-Host "Assinatura selecionada: '$subscriptionID'"
 az account set --subscription $subscriptionID
-Write-Host "Mudando para assinatura '$subscriptionID'"
 
 $userObjectID = az ad signed-in-user show --query id -o tsv
 Write-Host "Este é o Id de objeto do usuario: '$userObjectID'"
