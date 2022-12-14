@@ -45,7 +45,6 @@ az storage blob upload-batch -d sources --account-key $storageAccountKey --accou
 Write-Host "Fazendo upload dos notebooks na area de trabalho do Synapse:($synapseWorkspaceName)"
 
 az synapse notebook import --workspace-name $synapseWorkspaceName --name DataPreparation --file "@..\src\notebooks\Data_Preparation.ipynb" -o none --spark-pool-name 'sparkpool1'
-az synapse notebook import --workspace-name $synapseWorkspaceName --name DataModeling --file "@..\src\notebooks\Modeling.ipynb" -o none --spark-pool-name 'sparkpool1'
-
+az synapse notebook import --workspace-name $synapseWorkspaceName --name DataModeling --file "@..\src\notebooks\Modeling.ipynb" -o none
 
 Write-Host "Todo processo esta completo"
