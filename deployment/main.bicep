@@ -48,18 +48,6 @@ module storageRoleDeployment 'deployStorageRoleAssignment.bicep' = {
   }
 }
 
-module trackingID 'deployTraceTag.bicep' = {
-  name: 'pid-740ba6b5-168a-5abb-8df4-ff0de6a9d5ee'
-  scope: rgPartComprator
-  params:{ }
-}
-
-
 output resourcegroupName string = 'partcomparator-${resourceprefix}'
 output storageAccountName string = '${resourceprefix}adls'
 output synapseworkspaceName string = synapseDeploy.outputs.synapseWorkspaceName
-
-
-
-
-
