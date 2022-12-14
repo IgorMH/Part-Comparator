@@ -348,7 +348,7 @@
         "[subscriptionResourceId('Microsoft.Resources/resourceGroups', format('partcomparator-{0}', parameters('resourceprefix')))]",
         "[extensionResourceId(format('/subscriptions/{0}/resourceGroups/{1}', subscription().subscriptionId, format('partcomparator-{0}', parameters('resourceprefix'))), 'Microsoft.Resources/deployments', format('{0}partcomparatorsynapse', parameters('resourceprefix')))]"
       ]
-    },
+    }
   ],
     "outputs": {
     "resourcegroupName": {
